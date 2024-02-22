@@ -1,0 +1,65 @@
+﻿@model IEnumerable<aspwebapi.Models.admin>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center>
+    <img src="~/images/download.jpg" width="50%" height="350px" />
+    <br />
+    <marquee bgcolor="skyblue" direction="alternate"  loop="">
+        <b>
+            <h2>ADMIN DATA OF VICTORIOUS INFOTECH PVT.LTD. </h2>
+        </b>
+    </marquee>
+</center>
+<p>
+    <b>@Html.ActionLink(" ADD ADMIN", "Create")</b>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mobile_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th></th>
+         
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mobile_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.admin_status }) |
+            @Html.ActionLink("Details", "Details", new { id=item.admin_status }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.admin_status })
+        </td>
+    </tr>
+}
+
+</table>
